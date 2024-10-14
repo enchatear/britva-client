@@ -1,0 +1,26 @@
+@import "@/styles/defaults";
+
+.lang_toggle {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 96px 96px;
+  grid-gap: 4px;
+  background: #4D4D4D66;
+  backdrop-filter: blur(10px);
+
+  .lang_btn {
+    width: 100%;
+    padding: 8px 16px;
+    gap: 2px;
+    font-size: 14px;
+
+    &.active {
+      background: $c-Primary-1;
+      color: $c-Accent-1;
+
+      svg path {
+        stroke: $c-Accent-1;
+      }
+    }
+  }
+}

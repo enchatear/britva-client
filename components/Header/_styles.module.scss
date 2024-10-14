@@ -1,0 +1,97 @@
+@import "@/styles/defaults";
+
+.header {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 24px 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  background: transparent;
+  align-items: center;
+
+  .logo {
+    justify-self: center;
+    width: 150px;
+  }
+
+  &_right_block {
+    display: inline-flex;
+    gap: 24px;
+    align-items: center;
+    justify-self: end;
+  }
+
+  &_contacts {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    .schedule {
+      color: $c-G-1;
+      font-family: var(--font-urbanist);
+    }
+
+    .phone {
+      transition: 200ms;
+      font-family: var(--font-urbanist);
+    }
+  }
+
+  .phone:hover {
+    color: $c-Accent-1;
+  }
+
+  .social_link {
+    height: 24px;
+
+    &:hover {
+      path {
+        fill: $c-Accent-1;
+      }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-laptop) {
+    &_right_block {
+      gap: 12px;
+    }
+
+    &_contacts {
+      gap: 12px;
+    }
+  }
+
+  @media screen and (max-width: 886px) {
+    padding: 4px 10px;
+
+    &_contacts {
+      position: absolute;
+      top: 62px;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: column;
+      gap: 4px;
+
+      .phone {
+        order: 1;
+      }
+
+      .schedule {
+        order: 2;
+      }
+    }
+
+    .logo {
+      width: 129px;
+      height: 24px;
+    }
+
+    .social_link {
+      height: 48px;
+      padding: 12px;
+    }
+  }
+}

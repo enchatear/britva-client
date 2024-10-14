@@ -1,0 +1,14 @@
+@import "@/styles/defaults";
+
+.main {
+  background: $c-Primary-1;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100dvh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  & > section {
+    scroll-snap-align: start;
+  }
+}

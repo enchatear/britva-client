@@ -1,0 +1,97 @@
+@import "@/styles/defaults";
+
+.menu_container {
+  position: relative;
+
+  .hamburger {
+    padding: 8px 12px;
+    border: none;
+    opacity: 1;
+    transition: 150ms;
+
+    & > span {
+      font-weight: 300;
+    }
+
+    &_open {
+      opacity: 0;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      padding: 12px;
+      & > span {
+        display: none;
+      }
+    }
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0px 12px 40px 0px #00000066;
+    animation: openMenu 250ms ease-out;
+    z-index: 100;
+
+    &.dismissed {
+      animation: closeMenu 200ms ease-in;
+      transform: translateX(-110%);
+    }
+
+    .close_btn {
+      width: 100%;
+      justify-content: space-between;
+      color: #BBBBBB;
+      background: #4D4D4D66;
+      backdrop-filter: blur(10px);
+      padding: 8px 16px;
+      font-weight: 300;
+    }
+
+    .navigation {
+      backdrop-filter: blur(10px);
+      background: #4D4D4D66;
+
+      .link_item {
+        width: 100%;
+
+        & > button {
+          width: 100%;
+          background: transparent;
+          justify-content: space-between;
+          font-size: 14px;
+          padding: 16px;
+          text-transform: uppercase;
+          font-weight: 300;
+        }
+      }
+    }
+
+    .book_btn {
+      width: 100%;
+      padding: 16px;
+    }
+  }
+}
+
+@keyframes openMenu {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeMenu {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-110%);
+  }
+}

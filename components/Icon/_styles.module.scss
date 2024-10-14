@@ -1,0 +1,17 @@
+@import "@/styles/defaults";
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition:
+          transform 125ms linear,
+          opacity 150ms linear;
+
+  path {
+    will-change: stroke, fill;
+    transition:
+            stroke 100ms linear,
+            fill 100ms linear,
+            transform 150ms linear;
+  }
+}

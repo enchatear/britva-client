@@ -1,0 +1,78 @@
+@import "@/styles/defaults";
+
+.barber_card {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  min-height: 592px;
+  z-index: 10;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 28px;
+  transition: width 200ms;
+
+
+  //.barber_content {
+  //  height: 100%;
+  //  z-index: 10;
+  //  display: flex;
+  //  flex-direction: column;
+  //  justify-content: space-between;
+  //  padding: 24px 28px;
+  //  position: relative;
+  //}
+
+  .barber_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    z-index: 1;
+
+    .position {
+      color: $c-Accent-1;
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    .name {
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  .book_btn {
+    width: 100%;
+    //min-width: 165px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 10 ;
+  }
+
+  &:hover {
+    //transform: scale(1.1);
+  }
+
+  &_over {
+    box-shadow: 0px 0px 100px 0px #FFD60029 inset;
+  }
+
+  .shadow_down {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 100%;
+    height: 214px;
+    background-image: url('/images/shadow_down.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+  }
+}

@@ -1,0 +1,100 @@
+@import '@/styles/defaults';
+
+.button {
+  --vertical-spacing: 1rem;
+  --horizontal-spacing: 1rem;
+  --border-width: 2px;
+  --border-color: #{$c-Accent-1};
+  --border-radius: 0;
+  --text-color: #{$c-Primary-1};
+  --ico-color: var(--text-color);
+  --background-color: #{$c-Accent-1};
+  --background-image: none;
+
+  user-select: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+  padding: 10px 24px;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  word-wrap: normal;
+  word-break: normal;
+  font-weight: 500;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+  width: fit-content;
+  font-family: var(--font-unbounded);
+
+  transition:
+          opacity 150ms linear,
+          background-color 150ms linear,
+          color 100ms linear,
+          border-color 100ms linear,
+          background-position 200ms linear;
+
+  .icon {
+    --icon-color: var(--ico-color);
+  }
+
+  &:hover {
+    --border-color: #{$c-Accent-1};
+    --background-color: #{$c-Primary-1};
+    --text-color: #{$c-Accent-1};
+  }
+
+  &:active {
+    --border-color: #{$c-Primary-1};
+    --background-color: #{$c-Primary-1};
+    --text-color: #{$c-Accent-1};
+  }
+
+
+  &:disabled,
+  &:hover:disabled,
+  &:active:disabled,
+  &:focus:disabled,
+  &:focus-visible:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    & > * {
+      cursor: not-allowed;
+    }
+  }
+
+  &.secondary {
+    --background-color: transparent;
+    --border-color: transparent;
+    --text-color: #{$c-Primary-2};
+    --icon-color: #{$c-Primary-2};
+
+    &:hover {
+      --border-color: #{$c-Accent-1};
+      --text-color: #{$c-Primary-2};
+      --icon-color: #{$c-Primary-2};
+    }
+
+    &:active {
+      --border-color: #4D4D4D40;
+      --text-color: #{$c-Accent-1};
+      --icon-color: #{$c-Accent-1};
+    }
+  }
+
+  &.empty {
+    --background-color: transparent;
+    --border-color: transparent;
+    --text-color: #{$c-Primary-2};
+    --icon-color: #{$c-Accent-1};
+
+    &:hover {
+      --text-color: #{$c-Accent-1};
+    }
+  }
+}
