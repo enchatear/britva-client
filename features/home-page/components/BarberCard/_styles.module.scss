@@ -17,16 +17,10 @@
   padding: 24px 28px;
   transition: width 200ms;
 
-
-  //.barber_content {
-  //  height: 100%;
-  //  z-index: 10;
-  //  display: flex;
-  //  flex-direction: column;
-  //  justify-content: space-between;
-  //  padding: 24px 28px;
-  //  position: relative;
-  //}
+  @media screen and (max-width: $breakpoint-laptop) {
+    background-size: contain;
+    height: 288px;
+  }
 
   .barber_info {
     width: 100%;
@@ -54,10 +48,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     z-index: 10 ;
-  }
-
-  &:hover {
-    //transform: scale(1.1);
   }
 
   &_over {

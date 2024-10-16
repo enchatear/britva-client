@@ -1,0 +1,68 @@
+@import "@/styles/defaults";
+
+.service_row {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  border: 1px solid $c-G-4;
+
+  .service_info {
+    padding: 24px;
+    display: flex;
+    gap: 24px;
+    border-right: 1px solid $c-G-4;
+
+    & > img {
+      width: 28px;
+      height: 40px;
+      object-fit: cover;
+    }
+
+    &_text {
+      & > h4 {
+        font-size: 14px;
+        font-weight: 400;
+        color: $c-Primary-2;
+        margin-bottom: 8px;
+      }
+
+      & > p {
+        font-weight: 400;
+        color: $c-G-1;
+      }
+    }
+  }
+
+  .service_price_block {
+    padding: 24px;
+
+    & > h6 {
+      color: $c-Accent-2;
+      font-weight: 400;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    & > span {
+      font-weight: 600;
+      font-family: var(--font-urbanist);
+
+      .currency {
+        font-weight: 400;
+      }
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid $c-G-4;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-laptop) {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .service_info {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      border-bottom: 1px solid $c-G-4;
+    }
+  }
+}

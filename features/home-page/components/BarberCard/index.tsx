@@ -8,8 +8,8 @@ import Icon from '@/components/Icon';
 
 const BarberCard: React.FC<{
   barberInfo: BarberContent;
-  onMouseOver: React.MouseEventHandler<HTMLDivElement>;
-  onMouseLeave: React.MouseEventHandler<HTMLDivElement>;
+  onMouseOver?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   isMouseOver: boolean;
   style?: React.CSSProperties;
 }> = ({ barberInfo, onMouseOver, onMouseLeave, isMouseOver, style }) => {

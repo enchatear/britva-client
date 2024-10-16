@@ -316,6 +316,8 @@ dd {
   height: 100%;
   margin: 0 auto;
   padding: 0 10px;
+  z-index: 10;
+  position: relative;
 }
 
 .slick-slide {

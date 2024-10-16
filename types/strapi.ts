@@ -62,6 +62,7 @@ export type ServiceContent = {
 export type ServicesBlock = {
   id: number;
   service: ServiceContent[];
+  backgroundImg: MediaImage | null;
 };
 
 export type SalonsBlock = {

@@ -1,0 +1,47 @@
+@import "@/styles/defaults";
+
+.servicesSection {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 104px;
+
+  .background_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .backdrop {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-attachment: fixed;
+    z-index: 0;
+  }
+
+  .services_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1;
+  }
+
+  @media screen and (max-width: $breakpoint-laptop) {
+    padding-top: 64px;
+  }
+}

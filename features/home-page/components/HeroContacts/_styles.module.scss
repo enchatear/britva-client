@@ -1,0 +1,21 @@
+@import "@/styles/defaults.scss";
+
+.hero_contacts {
+  position: absolute;
+  top: 62px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .phone {
+    transition: 200ms;
+    font-family: var(--font-urbanist);
+  }
+
+  .schedule {
+    color: $c-G-1;
+    font-family: var(--font-urbanist);
+  }
+}

@@ -4,11 +4,15 @@
   background: $c-Primary-1;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  height: 100dvh;
+  height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
 
-  & > section {
-    scroll-snap-align: start;
+  @media screen and (min-width: $breakpoint-laptop) {
+    height: 100dvh;
+
+    & > section {
+      scroll-snap-align: start;
+    }
   }
 }

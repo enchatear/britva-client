@@ -96,29 +96,24 @@
     padding: 4px;
     right: 0;
     top: 50%;
-    //transform: translateY(-50%);
-    z-index: 11;
-  }
-
-  .carousel_controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
     transform: translateY(-50%);
     z-index: 11;
-
-    & > button {
-
-    }
   }
+}
 
-  .carousel_controls button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
+@media screen and (max-width: $breakpoint-laptop) {
+  .barbers {
+    height: 100%;
+
+    &_content {
+      padding: 15px;
+    }
+
+    &_list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
   }
 }
 
