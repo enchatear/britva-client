@@ -16,6 +16,8 @@ export default async function Home({
   const { locale } = params;
   const data = await getHomePageContent(locale);
 
+  console.log('Hey! look what i got: ', process.env.NEXT_PUBLIC_STRAPI_URL);
+
   return (
     <main className="main">
       <HeroSection
