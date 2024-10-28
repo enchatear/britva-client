@@ -24,7 +24,13 @@ export const getHomePageContent = cache(
     );
 
     if (!res.ok) {
-      throw new Error('Failed to fetch barbershop data');
+      const errorBody = await res.text();
+      console.error(
+        'Failed to fetch home page content:',
+        res.status,
+        errorBody
+      );
+      throw new Error(`Failed to fetch home page content: ${res.status}`);
     }
 
     const data = await res.json();
