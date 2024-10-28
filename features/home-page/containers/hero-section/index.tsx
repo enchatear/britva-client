@@ -12,6 +12,7 @@ const HeroSection: React.FC<{
   return (
     <section
       className={styles.heroSection}
+      id="home"
       style={
         content.backgroundImg
           ? {

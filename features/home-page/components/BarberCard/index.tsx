@@ -1,9 +1,11 @@
+'use client';
 import React from 'react';
-import { BarberContent } from '@/types/strapi';
-import styles from './_styles.module.scss';
-import { getImageUrl } from '@/lib/strapi';
 import clsx from 'clsx';
+import { useTranslations } from 'next-intl';
+import type { BarberContent } from '@/types/strapi';
+import { getImageUrl } from '@/lib/strapi';
 import Button from '@/components/Button';
+import styles from './_styles.module.scss';
 import Icon from '@/components/Icon';
 
 const BarberCard: React.FC<{
@@ -13,6 +15,8 @@ const BarberCard: React.FC<{
   isMouseOver: boolean;
   style?: React.CSSProperties;
 }> = ({ barberInfo, onMouseOver, onMouseLeave, isMouseOver, style }) => {
+  const t = useTranslations();
+
   return (
     <div
       className={clsx(styles.barber_card, {
@@ -26,20 +30,17 @@ const BarberCard: React.FC<{
       onMouseLeave={onMouseLeave}
     >
       {isMouseOver ? (
-        // <div className={styles.barber_content}>
         <>
           <div className={styles.barber_info}>
             <span className={styles.position}>
-              {barberInfo.position}
-              {/*<Icon name="" />*/}
+              {t(barberInfo.position)}
+              {barberInfo.position === 'senior' ? <Icon name="crown" /> : null}
             </span>
             <span className={styles.name}>{barberInfo.name}</span>
           </div>
-          <Button className={styles.book_btn}>BOOK NOW</Button>
+          <Button className={styles.book_btn}>{t('bookNow')}</Button>
         </>
-      ) : // </div>
-      null}
-      {/*<img className={styles.barber_img} src={getImageUrl(barberInfo.image)} />*/}
+      ) : null}
       <div className={styles.shadow_down} />
     </div>
   );

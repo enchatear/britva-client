@@ -34,6 +34,16 @@
       color: $c-Accent-1;
       font-size: 14px;
       font-weight: 300;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      & > svg {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     .name {
@@ -44,7 +54,7 @@
 
   .book_btn {
     width: 100%;
-    //min-width: 165px;
+    text-transform: uppercase;
     text-overflow: ellipsis;
     white-space: nowrap;
     z-index: 10 ;

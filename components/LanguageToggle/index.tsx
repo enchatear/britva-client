@@ -2,8 +2,11 @@ import React from 'react';
 import styles from './_styles.module.scss';
 import Button from '@/components/Button';
 import clsx from 'clsx';
+import { usePathname, useRouter } from '@/i18n/routing';
+import { useParams } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
-type Lang = 'en' | 'uk-UA';
+type Lang = 'en' | 'ua';
 
 const possibleLanguages: {
   title: string;
@@ -11,7 +14,7 @@ const possibleLanguages: {
 }[] = [
   {
     title: 'УКР',
-    value: 'uk-UA',
+    value: 'ua',
   },
   {
     title: 'ENG',
@@ -20,10 +23,12 @@ const possibleLanguages: {
 ];
 
 const LanguageToggle: React.FC = () => {
-  const [currentLang, setCurrentLang] = React.useState<Lang>('uk-UA');
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const selectLang = (lang: Lang) => {
-    setCurrentLang(lang);
+    router.replace(pathname, { locale: lang });
   };
 
   return (
@@ -34,9 +39,9 @@ const LanguageToggle: React.FC = () => {
           secondary
           onClick={() => selectLang(lang.value)}
           className={clsx(styles.lang_btn, {
-            [styles.active]: currentLang === lang.value,
+            [styles.active]: locale === lang.value,
           })}
-          icon={currentLang === lang.value ? 'bullet' : undefined}
+          icon={locale === lang.value ? 'bullet' : undefined}
           iconPosition="right"
         >
           {lang.title}

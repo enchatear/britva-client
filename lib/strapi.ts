@@ -4,9 +4,14 @@ import { HomePageContent, MediaImage } from '@/types/strapi';
 
 // Using React's cache function to ensure the same data is reused
 export const getHomePageContent = cache(
-  async (locale: 'en' | 'uk-UA'): Promise<HomePageContent> => {
+  async (locale: 'en' | 'ua'): Promise<HomePageContent> => {
+    const strapiLocalesDictionary = {
+      en: 'en',
+      ua: 'uk-UA',
+    };
+
     const res = await fetch(
-      `${config.strapi.baseUrl}/api/home-page?locale=${locale}`,
+      `${config.strapi.baseUrl}/api/home-page?locale=${strapiLocalesDictionary[locale]}`,
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,

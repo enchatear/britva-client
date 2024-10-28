@@ -1,0 +1,95 @@
+@import "@/styles/defaults";
+
+.franchise_section {
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 104px;
+
+  .backdrop {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-attachment: fixed;
+    z-index: 0;
+  }
+
+    .franchise_content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      
+        .franchise_block {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          text-align: center;
+          align-items: center;
+          max-width: 538px;
+          width: 100%;
+
+          & > h3 {
+            color: $c-Accent-1;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: 500;
+          }
+
+          & > h2 {
+            font-size: 48px;
+            color: $c-G-2;
+            text-transform: uppercase;
+            font-weight: 400;
+          }
+
+          & button {
+            text-transform: uppercase;
+            margin-top: 24px;
+          }
+
+          @media screen and (min-width: $breakpoint-laptop) {
+            position: absolute;
+            right: 120px;
+            bottom: 100px;
+          }
+        }
+    }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    background-position: -230px;
+
+    .franchise_content {
+      align-items: flex-end;
+      padding-bottom: 32px;
+
+      .franchise_block {
+        gap: 8px;
+        max-width: 258px;
+
+        & > h3 {
+          font-size: 16px;
+          font-weight: 300;
+        }
+
+        & > h2 {
+          font-size: 24px;
+          font-weight: 500;
+        }
+
+        & button {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+}

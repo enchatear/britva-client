@@ -15,4 +15,18 @@
       scroll-snap-align: start;
     }
   }
+
+  /* Custom Scrollbar Styles */
+  &::-webkit-scrollbar {
+  width: 16px;
+  background: transparent;
+}
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $c-G-4;
+    border-radius: 4px;
+    background-clip: padding-box;
+    border: 6px solid rgba(0, 0, 0, 0);
+    border-right: 5px solid rgba(0, 0, 0, 0);
+  }
 }

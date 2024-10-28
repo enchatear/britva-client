@@ -1,3 +1,5 @@
+@import "@/styles/defaults";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,6 +12,7 @@ body {
   min-height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -322,4 +325,19 @@ dd {
 
 .slick-slide {
   transition: 200ms;
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 16px;
+    background: #000;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $c-G-4;
+    border-radius: 4px;
+    background-clip: padding-box;
+    border: 6px solid rgba(0, 0, 0, 0);
+    border-right: 5px solid rgba(0, 0, 0, 0);
+  }
 }

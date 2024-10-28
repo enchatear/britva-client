@@ -30,14 +30,14 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   return to ? (
-    <button
-      {...rest}
-      className={clsx(styles.button, className, {
-        [styles.secondary]: secondary,
-        [styles.empty]: empty,
-      })}
-    >
-      <Link href={to}>
+    <Link href={to}>
+      <button
+        {...rest}
+        className={clsx(styles.button, className, {
+          [styles.secondary]: secondary,
+          [styles.empty]: empty,
+        })}
+      >
         {' '}
         {icon && iconPosition === 'left' ? (
           <Icon name={icon} className={clsx(styles.icon, iconClassName)} />
@@ -46,8 +46,8 @@ const Button: React.FC<ButtonProps> = ({
         {icon && iconPosition === 'right' ? (
           <Icon name={icon} className={clsx(styles.icon, iconClassName)} />
         ) : null}
-      </Link>
-    </button>
+      </button>
+    </Link>
   ) : (
     <button
       {...rest}

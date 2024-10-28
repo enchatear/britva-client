@@ -8,6 +8,7 @@ import close from '@/assets/icons/close.svg';
 import insta from '@/assets/icons/insta.svg';
 import location from '@/assets/icons/location.svg';
 import menu from '@/assets/icons/menu.svg';
+import crown from '@/assets/icons/crown.svg';
 import clsx from 'clsx';
 import styles from './_styles.module.scss';
 
@@ -20,7 +21,8 @@ export type IconName =
   | 'close'
   | 'insta'
   | 'location'
-  | 'menu';
+  | 'menu'
+  | 'crown';
 
 const icons: { [Key in IconName]: React.FC<React.SVGProps<SVGSVGElement>> } = {
   arrow,
@@ -32,6 +34,7 @@ const icons: { [Key in IconName]: React.FC<React.SVGProps<SVGSVGElement>> } = {
   insta,
   location,
   menu,
+  crown,
 };
 
 type IconProps = React.SVGProps<SVGSVGElement> & { name: IconName };

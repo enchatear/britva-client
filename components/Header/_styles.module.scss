@@ -2,7 +2,7 @@
 
 .header {
   position: fixed;
-  z-index: 1000;
+  z-index: 99;
   width: 100%;
   top: 0;
   left: 0;
@@ -96,5 +96,82 @@
       height: 48px;
       padding: 12px;
     }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 24px;
+  left: 40px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0px 12px 40px 0px #00000066;
+  animation: openMenu 250ms ease-out;
+  z-index: 100;
+
+  &.dismissed {
+    animation: closeMenu 200ms ease-in;
+    transform: translateX(-110%);
+  }
+
+  .close_btn {
+    width: 100%;
+    justify-content: space-between;
+    color: #BBBBBB;
+    background: #4D4D4D66;
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .navigation {
+    background: #4D4D4D66;
+    backdrop-filter: blur(10px);
+
+    .link_item {
+      width: 100%;
+
+      & button {
+        width: 100%;
+        background: transparent;
+        justify-content: space-between;
+        font-size: 14px;
+        padding: 16px;
+        text-transform: uppercase;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .book_btn {
+    width: 100%;
+    padding: 16px;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    left: 10px;
+    top: 10px;
+  }
+}
+
+@keyframes openMenu {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeMenu {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-110%);
   }
 }

@@ -4,32 +4,40 @@
   display: grid;
   grid-template-columns: 3fr 1fr 1fr 1fr;
   border: 1px solid $c-G-4;
+  z-index: 10;
 
   .service_info {
     padding: 24px;
-    display: flex;
-    gap: 24px;
+    display: grid;
+    grid-template-areas: "icon title"
+                          "icon descr";
+    grid-template-columns: 28px 1fr;
+    gap: 0 24px;
     border-right: 1px solid $c-G-4;
+
 
     & > img {
       width: 28px;
       height: 40px;
       object-fit: cover;
+      grid-area: icon;
     }
 
-    &_text {
+    //&_text {
       & > h4 {
         font-size: 14px;
         font-weight: 400;
         color: $c-Primary-2;
         margin-bottom: 8px;
+        grid-area: title;
       }
 
       & > p {
         font-weight: 400;
         color: $c-G-1;
+        grid-area: descr;
       }
-    }
+    //}
   }
 
   .service_price_block {
@@ -60,9 +68,21 @@
     grid-template-columns: 1fr 1fr 1fr;
 
     .service_info {
+      padding: 12px;
       grid-column-start: 1;
       grid-column-end: 4;
       border-bottom: 1px solid $c-G-4;
+      grid-template-areas: "icon title" "descr descr";
+      gap: 8px 16px;
+      align-items: center;
+
+      & > h4 {
+        margin-bottom: 0;
+      }
+    }
+
+    .service_price_block {
+      padding: 12px;
     }
   }
 }

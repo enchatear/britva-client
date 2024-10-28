@@ -15,15 +15,13 @@ const ServicesSection: React.FC<{ content: ServicesBlock }> = ({ content }) => {
           : undefined
       }
     >
-      <div className={styles.backdrop} />
       <div className="container">
-        {/*<div className={styles.services_content}>*/}
         <div className={styles.services_list}>
+          <div className={styles.backdrop} />
           {content.service.map(service => (
             <ServiceRow key={service.id} service={service} />
           ))}
         </div>
-        {/*</div>*/}
       </div>
     </section>
   );

@@ -1,12 +1,16 @@
 'use client';
 import React, { useEffect, useMemo, useState } from 'react';
-import { BarbersBlock } from '@/types/strapi';
-import styles from './_styles.module.scss';
+import { useTranslations } from 'next-intl';
+import type { BarbersBlock } from '@/types/strapi';
 import BarberCard from '@/features/home-page/components/BarberCard';
 import clsx from 'clsx';
 import Button from '@/components/Button';
+import styles from './_styles.module.scss';
 
 const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
+  const t = useTranslations();
+  const [isClient, setIsClient] = useState(false);
+
   const [countOfBarbersOnViewport, setCountOfBarbersOnViewport] = useState(6);
 
   useEffect(() => {
@@ -97,10 +101,14 @@ const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
     () => '2fr'
   );
 
-  return (
-    <section className={styles.barbers}>
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  return isClient ? (
+    <section className={styles.barbers} id="barbers">
       <div className="container">
-        <h2>OUR TEAM</h2>
+        <h2>{t('ourTeam')}</h2>
         <div className={styles.barbers_content}>
           {content.barbers.length > countOfBarbersOnViewport &&
             window.innerWidth > 992 && (
@@ -220,7 +228,7 @@ const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
         </div>
       </div>
     </section>
-  );
+  ) : null;
 };
 
 export default BarbersSection;

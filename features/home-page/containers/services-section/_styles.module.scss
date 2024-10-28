@@ -1,15 +1,16 @@
 @import "@/styles/defaults";
 
 .servicesSection {
-  height: 100%;
+  height: 100dvh;
   width: 100%;
   overflow-y: auto;
   position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   padding-top: 104px;
+  overflow-x: hidden;
 
   .background_img {
     position: absolute;
@@ -24,11 +25,12 @@
   }
 
   .backdrop {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+    min-height: 100vh;
+    height: calc(100% + 156px);
+    width: calc(100% + 2000px);
+    position: absolute;
+    top: -104px;
+    left: -1000px;
     background-color: rgba(0, 0, 0, 0.8);
     background-attachment: fixed;
     z-index: 0;
@@ -38,10 +40,16 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    z-index: 1;
+    z-index: 10;
+    position: relative;
   }
 
   @media screen and (max-width: $breakpoint-laptop) {
-    padding-top: 64px;
+    padding: 64px 0;
+    height: 100%;
+
+    .backdrop {
+      height: calc(100% + 168px);
+    }
   }
 }
