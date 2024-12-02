@@ -17,7 +17,7 @@ const ServicesSection: React.FC<{ content: ServicesBlock }> = ({ content }) => {
     >
       <div className="container">
         <div className={styles.services_list}>
-          <div className={styles.backdrop} />
+          {/*<div className={styles.backdrop} />*/}
           {content.service.map(service => (
             <ServiceRow key={service.id} service={service} />
           ))}

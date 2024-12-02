@@ -16,7 +16,7 @@ const SalonsSection: React.FC<{ content: SalonsBlock }> = ({ content }) => {
           : undefined
       }
     >
-      <div className={styles.backdrop} />
+      {/*<div className={styles.backdrop} />*/}
       <div className="container">
         <div className={styles.salons_content}>
           <h3>{content.subtitle}</h3>

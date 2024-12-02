@@ -17,7 +17,7 @@ const FranchiseSection: React.FC<{ content: FranchiseBlock }> = ({
           : undefined
       }
     >
-      <div className={styles.backdrop} />
+      {/*<div className={styles.backdrop} />*/}
       <div className="container">
         <div className={styles.franchise_content}>
           <div className={styles.franchise_block}>
