@@ -19,19 +19,28 @@ const ServiceRow: React.FC<{ service: ServiceContent }> = async ({
       <div className={styles.service_price_block}>
         <h6>{t('junior')}</h6>
         <span>
-          {service.juniorPrice} <span className={styles.currency}>₴</span>
+          {service.juniorPrice}
+          {Number.isSafeInteger(service.juniorPrice) ? (
+            <span className={styles.currency}>₴</span>
+          ) : null}
         </span>
       </div>
       <div className={styles.service_price_block}>
         <h6>{t('middle')}</h6>
         <span>
-          {service.middlePrice} <span className={styles.currency}>₴</span>
+          {service.middlePrice}
+          {Number.isSafeInteger(service.juniorPrice) ? (
+            <span className={styles.currency}>₴</span>
+          ) : null}
         </span>
       </div>
       <div className={styles.service_price_block}>
         <h6>{t('senior')}</h6>
         <span>
-          {service.seniorPrice} <span className={styles.currency}>₴</span>
+          {service.seniorPrice}
+          {Number.isSafeInteger(service.juniorPrice) ? (
+            <span className={styles.currency}>₴</span>
+          ) : null}
         </span>
       </div>
     </div>

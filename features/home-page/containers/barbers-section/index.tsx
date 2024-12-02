@@ -52,7 +52,7 @@ const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
           ? undefined
           : startCarouselIndex + countOfBarbersOnViewport
       ),
-    [startCarouselIndex, content.barbers]
+    [startCarouselIndex, countOfBarbersOnViewport, content.barbers]
   );
 
   const nextViewportBarbers = useMemo(
@@ -66,7 +66,7 @@ const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
               ? undefined
               : startCarouselIndex + countOfBarbersOnViewport * 2
           ),
-    [startCarouselIndex, content.barbers]
+    [startCarouselIndex, countOfBarbersOnViewport, content.barbers]
   );
 
   const prevViewportBarbers = useMemo(
@@ -79,7 +79,7 @@ const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
               ? undefined
               : startCarouselIndex
           ),
-    [startCarouselIndex, content.barbers]
+    [startCarouselIndex, countOfBarbersOnViewport, content.barbers]
   );
 
   const handleAnimationEnd = () => {

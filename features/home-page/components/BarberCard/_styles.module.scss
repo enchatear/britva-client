@@ -49,6 +49,8 @@
     .name {
       font-weight: 400;
       text-transform: uppercase;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 

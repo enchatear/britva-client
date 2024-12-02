@@ -146,6 +146,9 @@ const urbanistFont = localFont({
 export const metadata: Metadata = {
   title: 'BRITVA',
   description: 'Barbershop website',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 async function RootLayout({
@@ -163,6 +166,9 @@ async function RootLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={`${unboundedFont.variable} ${urbanistFont.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <Header content={data.data.content[0]} />

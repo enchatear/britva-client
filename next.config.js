@@ -17,13 +17,13 @@ module.exports = withNextIntl({
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '1337',
-      },
-    ],
-  },
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'http',
+  //       hostname: 'localhost',
+  //       port: '1337',
+  //     },
+  //   ],
+  // },
 });

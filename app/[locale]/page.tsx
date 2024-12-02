@@ -16,12 +16,6 @@ export default async function Home({
   const { locale } = params;
   const data = await getHomePageContent(locale);
 
-  console.log(
-    'Hey! look what i got: ',
-    process.env.NEXT_PUBLIC_STRAPI_URL,
-    process.env.STRAPI_API_TOKEN
-  );
-
   return (
     <main className="main">
       <HeroSection
@@ -32,7 +26,7 @@ export default async function Home({
       <ServicesSection content={data.data.content[3]} />
       <SalonsSection content={data.data.content[4]} />
       <FranchiseSection content={data.data.content[5]} />
-      <ScrollHandler />
+      {/*<ScrollHandler />*/}
     </main>
   );
 }
