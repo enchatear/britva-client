@@ -4,11 +4,8 @@ import localFont from 'next/font/local';
 import { getHomePageContent } from '@/lib/strapi';
 import Header from '@/components/Header';
 import './globals.scss';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
-import Script from 'next/script';
 
 const unboundedFont = localFont({
   src: [

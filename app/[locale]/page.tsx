@@ -2,7 +2,6 @@ import React from 'react';
 import { getHomePageContent } from '@/lib/strapi';
 import HeroSection from '@/features/home-page/containers/hero-section';
 import BarbersSection from '@/features/home-page/containers/barbers-section';
-import ScrollHandler from '@/components/ScrollHandler';
 import './page.scss';
 import ServicesSection from '@/features/home-page/containers/services-section';
 import SalonsSection from '@/features/home-page/containers/salons-section';
@@ -26,7 +25,6 @@ export default async function Home({
       <ServicesSection content={data.data.content[3]} />
       <SalonsSection content={data.data.content[4]} />
       <FranchiseSection content={data.data.content[5]} />
-      {/*<ScrollHandler />*/}
     </main>
   );
 }

@@ -7,7 +7,7 @@ import { getTranslations } from 'next-intl/server';
 const ServiceRow: React.FC<{ service: ServiceContent }> = async ({
   service,
 }) => {
-  // const t = await getTranslations();
+  const t = await getTranslations();
 
   return (
     <div className={styles.service_row}>
@@ -17,7 +17,7 @@ const ServiceRow: React.FC<{ service: ServiceContent }> = async ({
         <p>{service.description}</p>
       </div>
       <div className={styles.service_price_block}>
-        <h6>{'junior'}</h6>
+        <h6>{t('junior')}</h6>
         <span>
           {service.juniorPrice}
           {Number.isSafeInteger(+service.juniorPrice) ? (
@@ -26,7 +26,7 @@ const ServiceRow: React.FC<{ service: ServiceContent }> = async ({
         </span>
       </div>
       <div className={styles.service_price_block}>
-        <h6>{'middle'}</h6>
+        <h6>{t('middle')}</h6>
         <span>
           {service.middlePrice}
           {Number.isSafeInteger(+service.juniorPrice) ? (
@@ -35,7 +35,7 @@ const ServiceRow: React.FC<{ service: ServiceContent }> = async ({
         </span>
       </div>
       <div className={styles.service_price_block}>
-        <h6>{'senior'}</h6>
+        <h6>{t('senior')}</h6>
         <span>
           {service.seniorPrice}
           {Number.isSafeInteger(+service.juniorPrice) ? (
