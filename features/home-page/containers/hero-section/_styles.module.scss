@@ -5,9 +5,9 @@
   width: 100vw;
   overflow: hidden;
   position: relative;
-  background-size: auto 95%;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  //background-size: auto 95%;
+  //background-position: bottom;
+  //background-repeat: no-repeat;
   position: relative;
   z-index: 1;
 
@@ -21,23 +21,6 @@
     text-align: center;
     gap: 24px;
     position: relative;
-
-    & > h2 {
-      color: $c-Primary-2;
-      font-size: 32px;
-      text-shadow: -2px 2px 14px #000000;
-      text-transform: uppercase;
-      z-index: 1;
-    }
-
-    & > h1 {
-      color: $c-Accent-2;
-      text-shadow: -2px 2px 24px #000000;
-      font-size: 90px;
-      font-weight: 600;
-      text-transform: uppercase;
-      z-index: 1;
-    }
 
     .location_wrapper {
       position: absolute;
@@ -77,60 +60,19 @@
     z-index: 0;
   }
 
-  @media screen and (max-width: $breakpoint-laptop) {
-    &_content {
-      gap: 18px;
-      & > h2 {
-        font-size: 24px;
-      }
-
-      & > h1 {
-        font-size: 66px;
-      }
-    }
-  }
-
   @media screen and (max-width: 886px) {
-    background-position: left 60% bottom 26px;
-    background-size: 700px 470px;
-
     .shadow_down {
       bottom: 25px;
     }
   }
 
   @media screen and (max-width: $breakpoint-tablet) {
-    &_content {
-      gap: 16px;
-
-      & > h2 {
-        font-size: 24px;
-      }
-
-      & > h1 {
-        font-size: 48px;
-      }
-    }
-
     .location_wrapper {
       bottom: 26px;
       height: fit-content;
        & > span {
          font-size: 12px;
        }
-    }
-  }
-
-  @media screen and (max-width: $breakpoint-mobile) {
-    &_content {
-      gap: 12px;
-      & > h2 {
-        font-size: 18px;
-      }
-
-      & > h1 {
-        font-size: 32px;
-      }
     }
   }
 }

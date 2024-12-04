@@ -17,22 +17,47 @@ type ButtonProps = React.DetailedHTMLProps<
   to?: string;
 };
 
-const Button: React.FC<ButtonProps> = ({
-  className,
-  secondary = false,
-  empty = false,
-  icon = null,
-  iconPosition = 'left',
-  iconClassName,
-  type,
-  children = null,
-  to,
-  ...rest
-}) => {
-  return to ? (
-    <Link href={to}>
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className,
+      secondary = false,
+      empty = false,
+      icon = null,
+      iconPosition = 'left',
+      iconClassName,
+      type,
+      children = null,
+      to,
+      ...rest
+    },
+    ref
+  ) => {
+    return to ? (
+      <Link href={to}>
+        <button
+          {...rest}
+          ref={ref}
+          className={clsx(styles.button, className, {
+            [styles.secondary]: secondary,
+            [styles.empty]: empty,
+          })}
+        >
+          {' '}
+          {icon && iconPosition === 'left' ? (
+            <Icon name={icon} className={clsx(styles.icon, iconClassName)} />
+          ) : null}
+          {children}
+          {icon && iconPosition === 'right' ? (
+            <Icon name={icon} className={clsx(styles.icon, iconClassName)} />
+          ) : null}
+        </button>
+      </Link>
+    ) : (
       <button
         {...rest}
+        ref={ref}
+        type={type}
         className={clsx(styles.button, className, {
           [styles.secondary]: secondary,
           [styles.empty]: empty,
@@ -47,26 +72,8 @@ const Button: React.FC<ButtonProps> = ({
           <Icon name={icon} className={clsx(styles.icon, iconClassName)} />
         ) : null}
       </button>
-    </Link>
-  ) : (
-    <button
-      {...rest}
-      type={type}
-      className={clsx(styles.button, className, {
-        [styles.secondary]: secondary,
-        [styles.empty]: empty,
-      })}
-    >
-      {' '}
-      {icon && iconPosition === 'left' ? (
-        <Icon name={icon} className={clsx(styles.icon, iconClassName)} />
-      ) : null}
-      {children}
-      {icon && iconPosition === 'right' ? (
-        <Icon name={icon} className={clsx(styles.icon, iconClassName)} />
-      ) : null}
-    </button>
-  );
-};
+    );
+  }
+);
 
 export default Button;

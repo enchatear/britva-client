@@ -1,16 +1,34 @@
+'use client';
 import React from 'react';
 import type { ServiceContent } from '@/types/strapi';
 import styles from './_styles.module.scss';
 import { getImageUrl } from '@/lib/strapi';
-import { getTranslations } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 
-const ServiceRow: React.FC<{ service: ServiceContent }> = async ({
+const ServiceMotionRow: React.FC<{ service: ServiceContent }> = ({
   service,
 }) => {
-  const t = await getTranslations();
+  const t = useTranslations();
 
   return (
-    <div className={styles.service_row}>
+    <motion.div
+      className={styles.service_row}
+      whileInView={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.3,
+          ease: 'circOut',
+          y: { stiffness: 1000, velocity: -100 },
+        },
+      }}
+      initial={{
+        y: 50,
+        opacity: 0,
+      }}
+      viewport={{ once: true }}
+    >
       <div className={styles.service_info}>
         <img src={getImageUrl(service.icon)} alt="service icon" />
         <h4>{service.name}</h4>
@@ -43,8 +61,8 @@ const ServiceRow: React.FC<{ service: ServiceContent }> = async ({
           ) : null}
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default ServiceRow;
+export default ServiceMotionRow;

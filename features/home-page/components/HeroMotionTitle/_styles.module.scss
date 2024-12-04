@@ -1,0 +1,61 @@
+@import "@/styles/defaults";
+
+.hero_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 24px;
+
+  & > h2 {
+    color: $c-Primary-2;
+    font-size: 32px;
+    text-shadow: -2px 2px 14px #000000;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  & > h1 {
+    color: $c-Accent-2;
+    text-shadow: -2px 2px 24px #000000;
+    font-size: 90px;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  @media screen and (max-width: $breakpoint-laptop) {
+      gap: 18px;
+      & > h2 {
+        font-size: 24px;
+      }
+
+      & > h1 {
+        font-size: 66px;
+      }
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    gap: 16px;
+
+    & > h2 {
+      font-size: 24px;
+    }
+
+    & > h1 {
+      font-size: 48px;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    gap: 12px;
+    & > h2 {
+      font-size: 18px;
+    }
+
+    & > h1 {
+      font-size: 32px;
+    }
+  }
+}

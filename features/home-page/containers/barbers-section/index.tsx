@@ -6,12 +6,13 @@ import BarberCard from '@/features/home-page/components/BarberCard';
 import clsx from 'clsx';
 import Button from '@/components/Button';
 import styles from './_styles.module.scss';
+import { motion } from 'framer-motion';
 
 const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
   const t = useTranslations();
   const [isClient, setIsClient] = useState(false);
 
-  const [countOfBarbersOnViewport, setCountOfBarbersOnViewport] = useState(6);
+  const [countOfBarbersOnViewport, setCountOfBarbersOnViewport] = useState(7);
 
   useEffect(() => {
     if (window.innerWidth < 1200) {
@@ -107,77 +108,76 @@ const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
 
   return isClient ? (
     <section className={styles.barbers} id="barbers">
-      <div className="container">
-        <h2>{t('ourTeam')}</h2>
-        <div className={styles.barbers_content}>
-          {content.barbers.length > countOfBarbersOnViewport &&
-            window.innerWidth > 992 && (
-              <>
-                <Button
-                  icon="arrow"
-                  secondary
-                  className={styles.left_arrow}
-                  onClick={handleScrollLeft}
-                  disabled={startCarouselIndex <= 0}
-                />
-                <Button
-                  icon="arrow"
-                  secondary
-                  className={styles.right_arrow}
-                  onClick={handleScrollRight}
-                  disabled={
-                    startCarouselIndex + countOfBarbersOnViewport >=
-                    content.barbers.length
-                  }
-                />
-              </>
-            )}
-          <div className={styles.barbers_list}>
-            {window.innerWidth > 992 ? (
-              <>
-                {prevViewportBarbers && (
-                  <div
-                    className={clsx(
-                      styles.fake_grid_track,
-                      styles.fake_grid_track_prev,
-                      {
-                        [styles.fake_grid_track_prev_scroll]:
-                          scrollEffect === 'left',
-                      }
-                    )}
-                    style={{
-                      gridTemplateColumns: defaultGridTemplateColumns.join(' '),
-                    }}
-                  >
-                    {prevViewportBarbers.map((barber, index) => (
-                      <BarberCard
-                        key={barber.id}
-                        barberInfo={barber}
-                        onMouseOver={() => handleMouseOver(index)}
-                        onMouseLeave={handleMouseLeave}
-                        isMouseOver={index === mouseOverIndex}
-                      />
-                    ))}
-                  </div>
-                )}
+      {/*<div className="container">*/}
+      <motion.h2
+        className={styles.title}
+        initial={{ opacity: 0, y: 75 }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: {
+            ease: 'circOut',
+            duration: 0.6,
+          },
+        }}
+        viewport={{ once: true }}
+      >
+        {t('ourTeam')}
+      </motion.h2>
+      <motion.div
+        className={styles.barbers_content}
+        initial={{ opacity: 0, y: 300 }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: {
+            ease: 'circOut',
+            duration: 0.6,
+            delay: 0.3,
+          },
+        }}
+        viewport={{ once: true }}
+      >
+        {content.barbers.length > countOfBarbersOnViewport &&
+          window.innerWidth > 992 && (
+            <>
+              <Button
+                icon="arrow"
+                secondary
+                className={styles.left_arrow}
+                onClick={handleScrollLeft}
+                disabled={startCarouselIndex <= 0}
+              />
+              <Button
+                icon="arrow"
+                secondary
+                className={styles.right_arrow}
+                onClick={handleScrollRight}
+                disabled={
+                  startCarouselIndex + countOfBarbersOnViewport >=
+                  content.barbers.length
+                }
+              />
+            </>
+          )}
+        <div className={styles.barbers_list}>
+          {window.innerWidth > 992 ? (
+            <>
+              {prevViewportBarbers && (
                 <div
-                  className={clsx(styles.barbers_grid_track, {
-                    [styles.scroll_left]: scrollEffect === 'left',
-                    [styles.scroll_right]: scrollEffect === 'right',
-                  })}
-                  onAnimationEnd={handleAnimationEnd}
+                  className={clsx(
+                    styles.fake_grid_track,
+                    styles.fake_grid_track_prev,
+                    {
+                      [styles.fake_grid_track_prev_scroll]:
+                        scrollEffect === 'left',
+                    }
+                  )}
                   style={{
-                    gridTemplateColumns:
-                      typeof mouseOverIndex === 'number'
-                        ? defaultGridTemplateColumns
-                            .map((col, idx) =>
-                              idx === mouseOverIndex ? '5fr' : col
-                            )
-                            .join(' ')
-                        : defaultGridTemplateColumns.join(' '),
+                    gridTemplateColumns: defaultGridTemplateColumns.join(' '),
                   }}
                 >
-                  {viewportBarbers.map((barber, index) => (
+                  {prevViewportBarbers.map((barber, index) => (
                     <BarberCard
                       key={barber.id}
                       barberInfo={barber}
@@ -187,46 +187,74 @@ const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
                     />
                   ))}
                 </div>
-                {nextViewportBarbers && (
-                  <div
-                    className={clsx(
-                      styles.fake_grid_track,
-                      styles.fake_grid_track_next,
-                      {
-                        [styles.fake_grid_track_next_scroll]:
-                          scrollEffect === 'right',
-                      }
-                    )}
-                    style={{
-                      gridTemplateColumns: defaultGridTemplateColumns.join(' '),
-                    }}
-                  >
-                    {nextViewportBarbers.map((barber, index) => (
-                      <BarberCard
-                        key={barber.id}
-                        barberInfo={barber}
-                        onMouseOver={() => handleMouseOver(index)}
-                        onMouseLeave={handleMouseLeave}
-                        isMouseOver={index === mouseOverIndex}
-                      />
-                    ))}
-                  </div>
-                )}
-              </>
-            ) : (
-              <>
-                {content.barbers.map(barber => (
+              )}
+              <div
+                className={clsx(styles.barbers_grid_track, {
+                  [styles.scroll_left]: scrollEffect === 'left',
+                  [styles.scroll_right]: scrollEffect === 'right',
+                })}
+                onAnimationEnd={handleAnimationEnd}
+                style={{
+                  gridTemplateColumns:
+                    typeof mouseOverIndex === 'number'
+                      ? defaultGridTemplateColumns
+                          .map((col, idx) =>
+                            idx === mouseOverIndex ? '5fr' : col
+                          )
+                          .join(' ')
+                      : defaultGridTemplateColumns.join(' '),
+                }}
+              >
+                {viewportBarbers.map((barber, index) => (
                   <BarberCard
                     key={barber.id}
                     barberInfo={barber}
-                    isMouseOver={true}
+                    onMouseOver={() => handleMouseOver(index)}
+                    onMouseLeave={handleMouseLeave}
+                    isMouseOver={index === mouseOverIndex}
                   />
                 ))}
-              </>
-            )}
-          </div>
+              </div>
+              {nextViewportBarbers && (
+                <div
+                  className={clsx(
+                    styles.fake_grid_track,
+                    styles.fake_grid_track_next,
+                    {
+                      [styles.fake_grid_track_next_scroll]:
+                        scrollEffect === 'right',
+                    }
+                  )}
+                  style={{
+                    gridTemplateColumns: defaultGridTemplateColumns.join(' '),
+                  }}
+                >
+                  {nextViewportBarbers.map((barber, index) => (
+                    <BarberCard
+                      key={barber.id}
+                      barberInfo={barber}
+                      onMouseOver={() => handleMouseOver(index)}
+                      onMouseLeave={handleMouseLeave}
+                      isMouseOver={index === mouseOverIndex}
+                    />
+                  ))}
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              {content.barbers.map(barber => (
+                <BarberCard
+                  key={barber.id}
+                  barberInfo={barber}
+                  isMouseOver={true}
+                />
+              ))}
+            </>
+          )}
         </div>
-      </div>
+      </motion.div>
+      {/*</div>*/}
     </section>
   ) : null;
 };

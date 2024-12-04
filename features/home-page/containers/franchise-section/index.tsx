@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './_styles.module.scss';
 import { FranchiseBlock } from '@/types/strapi';
 import { getImageUrl } from '@/lib/strapi';
-import Button from '@/components/Button';
+import FranchiseMotionBlock from '@/features/home-page/components/FranchiseMotionBlock';
 
 const FranchiseSection: React.FC<{ content: FranchiseBlock }> = ({
   content,
@@ -17,14 +17,15 @@ const FranchiseSection: React.FC<{ content: FranchiseBlock }> = ({
           : undefined
       }
     >
-      {/*<div className={styles.backdrop} />*/}
       <div className="container">
         <div className={styles.franchise_content}>
-          <div className={styles.franchise_block}>
-            <h3>{content.subtitle}</h3>
-            <h2>{content.title}</h2>
-            <Button to={content.button.url}>{content.button.title}</Button>
-          </div>
+          <FranchiseMotionBlock
+            content={{
+              title: content.title,
+              subtitle: content.subtitle,
+              button: content.button,
+            }}
+          />
         </div>
       </div>
     </section>

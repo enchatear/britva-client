@@ -2,7 +2,7 @@
 
 .main {
   background: $c-Primary-1;
-  scroll-snap-type: y mandatory;
+  //scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
   overflow-x: hidden;
@@ -12,8 +12,8 @@
     height: 100dvh;
 
     & > section {
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
+      //scroll-snap-align: start;
+      //scroll-snap-stop: always;
     }
   }
 

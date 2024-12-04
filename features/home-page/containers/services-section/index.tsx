@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './_styles.module.scss';
 import type { ServicesBlock } from '@/types/strapi';
 import { getImageUrl } from '@/lib/strapi';
-import ServiceRow from '@/features/home-page/components/ServiceRow';
+import ServiceMotionRow from '../../components/ServiceMotionRow';
 
 const ServicesSection: React.FC<{ content: ServicesBlock }> = ({ content }) => {
   return (
@@ -19,7 +19,7 @@ const ServicesSection: React.FC<{ content: ServicesBlock }> = ({ content }) => {
         <div className={styles.services_list_wrapper}>
           <div className={styles.services_list}>
             {content.service.map(service => (
-              <ServiceRow key={service.id} service={service} />
+              <ServiceMotionRow key={service.id} service={service} />
             ))}
           </div>
         </div>

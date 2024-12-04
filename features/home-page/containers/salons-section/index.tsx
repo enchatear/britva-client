@@ -2,6 +2,7 @@ import React from 'react';
 import { SalonsBlock } from '@/types/strapi';
 import styles from './_styles.module.scss';
 import { getImageUrl } from '@/lib/strapi';
+import SalonsText from '../../components/SalonsMotionText';
 
 const SalonsSection: React.FC<{ content: SalonsBlock }> = ({ content }) => {
   return (
@@ -18,10 +19,9 @@ const SalonsSection: React.FC<{ content: SalonsBlock }> = ({ content }) => {
     >
       {/*<div className={styles.backdrop} />*/}
       <div className="container">
-        <div className={styles.salons_content}>
-          <h3>{content.subtitle}</h3>
-          <h2>{content.title}</h2>
-        </div>
+        <SalonsText
+          content={{ subtitle: content.subtitle, title: content.title }}
+        />
       </div>
     </section>
   );

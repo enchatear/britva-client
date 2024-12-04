@@ -51,9 +51,9 @@
     z-index: 10;
     position: relative;
     padding-bottom: 48px;
-    contain: layout paint; /* Improves rendering performance */
-    isolation: isolate;    /* Prevents interference between elements */
-    will-change: scroll-position, transform;
+    //contain: layout paint; /* Improves rendering performance */
+    //isolation: isolate;    /* Prevents interference between elements */
+    //will-change: scroll-position, transform;
   }
 
   @media screen and (max-width: $breakpoint-laptop) {
