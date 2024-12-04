@@ -22,7 +22,6 @@ const SalonsText: React.FC<{
           transition: {
             ease: 'circOut',
             duration: 0.6,
-            delay: 0.3,
           },
         }}
         viewport={{ once: true }}
@@ -42,9 +41,10 @@ const SalonsText: React.FC<{
           transition: {
             ease: 'circOut',
             duration: 0.6,
-            delay: 0.6,
+            delay: 0.3,
           },
         }}
+        viewport={{ once: true }}
       >
         {content.title}
       </motion.h2>

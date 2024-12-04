@@ -30,7 +30,6 @@ const FranchiseMotionBlock: React.FC<{
           transition: {
             ease: 'circOut',
             duration: 0.6,
-            delay: 0.3,
           },
         }}
         viewport={{ once: true }}
@@ -50,9 +49,10 @@ const FranchiseMotionBlock: React.FC<{
           transition: {
             ease: 'circOut',
             duration: 0.6,
-            delay: 0.6,
+            delay: 0.3,
           },
         }}
+        viewport={{ once: true }}
       >
         {content.title}
       </motion.h2>
@@ -70,9 +70,10 @@ const FranchiseMotionBlock: React.FC<{
           transition: {
             ease: 'circOut',
             duration: 0.6,
-            delay: 0.9,
+            delay: 0.6,
           },
         }}
+        viewport={{ once: true }}
       >
         {content.button.title}
       </MotionButton>
