@@ -34,27 +34,8 @@
     background-position: -230px;
 
     .franchise_content {
-      align-items: flex-end;
+      align-items: center;
       padding-bottom: 32px;
-
-      .franchise_block {
-        gap: 8px;
-        max-width: 258px;
-
-        & > h3 {
-          font-size: 16px;
-          font-weight: 300;
-        }
-
-        & > h2 {
-          font-size: 24px;
-          font-weight: 500;
-        }
-
-        & button {
-          margin-top: 16px;
-        }
-      }
     }
   }
 }

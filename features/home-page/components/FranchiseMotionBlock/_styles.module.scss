@@ -33,4 +33,23 @@
     right: 120px;
     bottom: 100px;
   }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+      gap: 8px;
+      max-width: 258px;
+
+      & > h3 {
+        font-size: 16px;
+        font-weight: 300;
+      }
+
+      & > h2 {
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      & button {
+        margin-top: 16px;
+      }
+  }
 }

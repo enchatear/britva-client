@@ -73,7 +73,7 @@ const FranchiseMotionBlock: React.FC<{
             delay: 0.6,
           },
         }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: '1000px' }}
       >
         {content.button.title}
       </MotionButton>
