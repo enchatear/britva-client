@@ -186,12 +186,6 @@ async function RootLayout({
           src="https://w666725.alteg.io/widgetJS"
           charSet="UTF-8"
         />
-        {/*<Script*/}
-        {/*  type="text/javascript"*/}
-        {/*  strategy="afterInteractive"*/}
-        {/*  src="https://w447790.alteg.io/widgetJS"*/}
-        {/*  charSet="UTF-8"*/}
-        {/*/>*/}
       </body>
     </html>
   );

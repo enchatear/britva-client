@@ -3,7 +3,6 @@ import styles from './_styles.module.scss';
 import Button from '@/components/Button';
 import clsx from 'clsx';
 import { usePathname, useRouter } from '@/i18n/routing';
-import { useParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 
 type Lang = 'en' | 'ua';
