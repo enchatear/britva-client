@@ -15,6 +15,8 @@ type ButtonProps = React.DetailedHTMLProps<
   iconClassName?: string;
   tooltip?: string;
   to?: string;
+  dataUrl?: string;
+  target?: string;
 };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -29,12 +31,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       type,
       children = null,
       to,
+      dataUrl,
+      target,
       ...rest
     },
     ref
   ) => {
     return to ? (
-      <Link href={to}>
+      <Link href={to} data-url={dataUrl} target={target}>
         <button
           {...rest}
           ref={ref}

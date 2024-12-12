@@ -38,7 +38,13 @@ const BarberCard: React.FC<{
             </span>
             <span className={styles.name}>{barberInfo.name}</span>
           </div>
-          <Button className={styles.book_btn}>{t('bookNow')}</Button>
+          <Button
+            to="https://w666725.alteg.io/"
+            target="_blank"
+            className={styles.book_btn}
+          >
+            {t('bookNow')}
+          </Button>
         </>
       ) : null}
       <div className={styles.shadow_down} />

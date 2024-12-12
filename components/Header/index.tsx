@@ -105,7 +105,11 @@ const Header: React.FC<{ content: HeaderBlock }> = ({ content }) => {
             </ul>
           </nav>
           <LanguageToggle />
-          <Button to="#" className={clsx(styles.book_btn, 'ms_booking')}>
+          <Button
+            to="https://w666725.alteg.io/"
+            target="_blank"
+            className={styles.book_btn}
+          >
             {t('bookNow')}
           </Button>
         </div>

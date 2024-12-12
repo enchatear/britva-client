@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import './globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import Script from 'next/script';
 
 const unboundedFont = localFont({
   src: [
@@ -171,6 +172,20 @@ async function RootLayout({
           <Header content={data.data.content[0]} />
           {children}
         </NextIntlClientProvider>
+
+        {/* Script without corner button */}
+        {/*<Script*/}
+        {/*  type="text/javascript"*/}
+        {/*  src="https://w447790.alteg.io/widgetJS"*/}
+        {/*  charSet={'UTF-8'}*/}
+        {/*/>*/}
+
+        {/* Script for corner button */}
+        <Script
+          type="text/javascript"
+          src="https://w666725.alteg.io/widgetJS"
+          charSet="UTF-8"
+        />
         {/*<Script*/}
         {/*  type="text/javascript"*/}
         {/*  strategy="afterInteractive"*/}
