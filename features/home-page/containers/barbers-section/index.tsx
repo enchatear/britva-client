@@ -12,7 +12,9 @@ const BarbersSection: React.FC<{ content: BarbersBlock }> = ({ content }) => {
   const t = useTranslations();
   const [isClient, setIsClient] = useState(false);
 
-  const [countOfBarbersOnViewport, setCountOfBarbersOnViewport] = useState(7);
+  const [countOfBarbersOnViewport, setCountOfBarbersOnViewport] = useState(
+    content.barbers.length <= 7 ? content.barbers.length : 7
+  );
 
   useEffect(() => {
     if (window.innerWidth < 1200) {

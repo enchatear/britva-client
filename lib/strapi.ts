@@ -10,6 +10,8 @@ export const getHomePageContent = async (
     ua: 'uk-UA',
   };
 
+  console.log(config.strapi.baseUrl);
+
   const res = await fetch(
     `${config.strapi.baseUrl}/api/home-page?locale=${strapiLocalesDictionary[locale]}`,
     {
@@ -18,7 +20,7 @@ export const getHomePageContent = async (
       },
       cache: 'no-store',
       next: {
-        revalidate: 3600, // Revalidate every hour
+        // revalidate: 3600, // Revalidate every hour
         tags: ['homepage-content'],
       },
     }
@@ -27,7 +29,9 @@ export const getHomePageContent = async (
   if (!res.ok) {
     const errorBody = await res.text();
     console.error('Failed to fetch home page content:', res.status, errorBody);
-    throw new Error(`Failed to fetch home page content: ${res.status}`);
+    throw new Error(
+      `Failed to fetch home page content: message: ${res}, status:${res.status}`
+    );
   }
 
   const data = await res.json();
