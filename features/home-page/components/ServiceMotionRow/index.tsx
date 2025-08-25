@@ -34,15 +34,15 @@ const ServiceMotionRow: React.FC<{ service: ServiceContent }> = ({
         <h4>{service.name}</h4>
         <p>{service.description}</p>
       </div>
-      <div className={styles.service_price_block}>
-        <h6>{t('junior')}</h6>
-        <span>
-          {service.juniorPrice}
-          {Number.isSafeInteger(+service.juniorPrice) ? (
-            <span className={styles.currency}>₴</span>
-          ) : null}
-        </span>
-      </div>
+      {/*<div className={styles.service_price_block}>*/}
+      {/*  <h6>{t('junior')}</h6>*/}
+      {/*  <span>*/}
+      {/*    {service.juniorPrice}*/}
+      {/*    {Number.isSafeInteger(+service.juniorPrice) ? (*/}
+      {/*      <span className={styles.currency}>₴</span>*/}
+      {/*    ) : null}*/}
+      {/*  </span>*/}
+      {/*</div>*/}
       <div className={styles.service_price_block}>
         <h6>{t('middle')}</h6>
         <span>

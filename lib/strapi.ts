@@ -10,8 +10,6 @@ export const getHomePageContent = async (
     ua: 'uk-UA',
   };
 
-  console.log(config.strapi.baseUrl);
-
   const res = await fetch(
     `${config.strapi.baseUrl}/api/home-page?locale=${strapiLocalesDictionary[locale]}`,
     {

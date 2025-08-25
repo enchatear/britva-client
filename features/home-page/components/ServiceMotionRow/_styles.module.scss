@@ -2,7 +2,7 @@
 
 .service_row {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr /*1fr*/;
   border: 1px solid $c-G-4;
   z-index: 10;
 
@@ -65,7 +65,7 @@
   }
 
   @media screen and (max-width: $breakpoint-laptop) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr /*1fr*/;
 
     .service_info {
       padding: 12px;
