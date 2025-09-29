@@ -7,6 +7,7 @@ import './globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 import Script from 'next/script';
+import LeavesAnimation from '@/components/LeavesAnimation';
 
 const unboundedFont = localFont({
   src: [

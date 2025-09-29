@@ -6,6 +6,7 @@ import './page.scss';
 import ServicesSection from '@/features/home-page/containers/services-section';
 import SalonsSection from '@/features/home-page/containers/salons-section';
 import FranchiseSection from '@/features/home-page/containers/franchise-section';
+import LeavesAnimation from '@/components/LeavesAnimation';
 
 export default async function Home({
   params,
@@ -17,6 +18,7 @@ export default async function Home({
 
   return (
     <main className="main">
+      <LeavesAnimation />
       <HeroSection
         content={data.data.content[1]}
         header_contacts={data.data.content[0]}
