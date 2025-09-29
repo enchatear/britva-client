@@ -43,7 +43,7 @@
   border-bottom: 1px solid #222;
   border-left: 0px solid #222;
   border-right: 1px solid #222;
-  background: linear-gradient(to right, rgba(0, 100, 0, 1), #005600);
+  background: linear-gradient(to right, #990, #564500);
   z-index: 1;
 }
 
@@ -178,11 +178,11 @@
 }
 
 .leaves i:nth-of-type(n) {
-  background: linear-gradient(to bottom right, #309900, #005600);
+  background: linear-gradient(to bottom right, #F8C737, #FFD600);
 }
 
 .leaves i:nth-of-type(2n+2) {
-  background: linear-gradient(to bottom right, #5e9900, #2b5600);
+  background: linear-gradient(to bottom right, #FFD600, #F8C737);
 }
 
 .leaves i:nth-of-type(4n+1) {
