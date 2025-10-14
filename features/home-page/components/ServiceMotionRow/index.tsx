@@ -11,6 +11,8 @@ const ServiceMotionRow: React.FC<{ service: ServiceContent }> = ({
 }) => {
   const t = useTranslations();
 
+  console.log('service:', service);
+
   return (
     <motion.div
       className={styles.service_row}
@@ -47,7 +49,7 @@ const ServiceMotionRow: React.FC<{ service: ServiceContent }> = ({
         <h6>{t('middle')}</h6>
         <span>
           {service.middlePrice}
-          {Number.isSafeInteger(+service.juniorPrice) ? (
+          {Number.isSafeInteger(+service.middlePrice) ? (
             <span className={styles.currency}>₴</span>
           ) : null}
         </span>
@@ -56,7 +58,7 @@ const ServiceMotionRow: React.FC<{ service: ServiceContent }> = ({
         <h6>{t('senior')}</h6>
         <span>
           {service.seniorPrice}
-          {Number.isSafeInteger(+service.juniorPrice) ? (
+          {Number.isSafeInteger(+service.seniorPrice) ? (
             <span className={styles.currency}>₴</span>
           ) : null}
         </span>
