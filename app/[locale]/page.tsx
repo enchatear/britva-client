@@ -7,6 +7,8 @@ import ServicesSection from '@/features/home-page/containers/services-section';
 import SalonsSection from '@/features/home-page/containers/salons-section';
 import FranchiseSection from '@/features/home-page/containers/franchise-section';
 import LeavesAnimation from '@/components/LeavesAnimation';
+import { Snowfall } from 'react-snowfall';
+import SnowAnimation from '@/components/SnowAnimation';
 
 export default async function Home({
   params,
@@ -17,16 +19,18 @@ export default async function Home({
   const data = await getHomePageContent(locale);
 
   return (
-    <main className="main">
-      <LeavesAnimation />
-      <HeroSection
-        content={data.data.content[1]}
-        header_contacts={data.data.content[0]}
-      />
-      <BarbersSection content={data.data.content[2]} />
-      <ServicesSection content={data.data.content[3]} />
-      <SalonsSection content={data.data.content[4]} />
-      <FranchiseSection content={data.data.content[5]} />
-    </main>
+    <>
+      <SnowAnimation />
+      <main className="main">
+        <HeroSection
+          content={data.data.content[1]}
+          header_contacts={data.data.content[0]}
+        />
+        <BarbersSection content={data.data.content[2]} />
+        <ServicesSection content={data.data.content[3]} />
+        <SalonsSection content={data.data.content[4]} />
+        <FranchiseSection content={data.data.content[5]} />
+      </main>
+    </>
   );
 }

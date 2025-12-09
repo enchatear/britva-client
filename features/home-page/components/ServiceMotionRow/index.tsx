@@ -11,8 +11,6 @@ const ServiceMotionRow: React.FC<{ service: ServiceContent }> = ({
 }) => {
   const t = useTranslations();
 
-  console.log('service:', service);
-
   return (
     <motion.div
       className={styles.service_row}
