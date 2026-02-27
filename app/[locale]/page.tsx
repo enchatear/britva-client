@@ -6,9 +6,6 @@ import './page.scss';
 import ServicesSection from '@/features/home-page/containers/services-section';
 import SalonsSection from '@/features/home-page/containers/salons-section';
 import FranchiseSection from '@/features/home-page/containers/franchise-section';
-import LeavesAnimation from '@/components/LeavesAnimation';
-import { Snowfall } from 'react-snowfall';
-import SnowAnimation from '@/components/SnowAnimation';
 
 export default async function Home({
   params,
@@ -20,7 +17,6 @@ export default async function Home({
 
   return (
     <>
-      <SnowAnimation />
       <main className="main">
         <HeroSection
           content={data.data.content[1]}
